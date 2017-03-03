@@ -1,0 +1,39 @@
+{
+  "name": "netshot",
+  "version": "1.0.0",
+  "description": "A simple REST service for taking web page screenshots via Electroshot",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/handcraftedbits/netshot.git"
+  },
+  "bin": {
+    "netshot": "./bin/netshot.js"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -t 5000 -R spec test/**/*",
+    "test-with-xvfb": "xvfb-run --server-args \"-screen 0 1920x1080x24\" npm test",
+    "coveralls": "npm test && ./node_modules/.bin/coveralls < coverage/lcov.info",
+    "coveralls-with-xvfb": "npm run test-with-xvfb && ./node_modules/.bin/coveralls < coverage/lcov.info"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.5",
+    "chromium-emulated-devices": "^1.0.0",
+    "chromium-emulated-networks": "^1.0.0",
+    "electroshot": "^1.2.0",
+    "jsonschema": "^1.1.1",
+    "restify": "^4.3.0",
+    "short-uuid": "^2.2.0",
+    "yargs": "^6.6.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "coveralls": "^2.11.16",
+    "get-port": "^2.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1",
+    "tmp": "0.0.31"
+  }
+}

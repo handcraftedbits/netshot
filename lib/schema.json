@@ -1,0 +1,230 @@
+{
+  "title": "JSON schema for netshot",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "type": "object",
+
+  "properties": {
+    "cookie": {
+      "oneOf": [
+        {
+          "id": "string",
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "id": "array of strings",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      ]
+    },
+
+    "css": {
+      "oneOf": [
+        {
+          "id": "string",
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "id": "array of strings",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      ]
+    },
+
+    "delay": {
+      "oneOf": [
+        {
+          "id": "integer",
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "id": "array of integers",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 1
+        }
+      ]
+    },
+
+    "device": {
+      "type": "object"
+    },
+
+    "format": {
+      "type": "string",
+      "enum": [
+        "jpg",
+        "pdf",
+        "png"
+      ]
+    },
+
+    "height": {
+      "oneOf": [
+        {
+          "id": "integer",
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "id": "string",
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+
+    "jpg": {
+      "type": "object",
+      "properties": {
+        "quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+
+    "js": {
+      "oneOf": [
+        {
+          "id": "string",
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "id": "array of strings",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      ]
+    },
+
+    "network": {
+      "oneOf": [
+        {
+          "id": "network profile",
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "id": "network conditions",
+          "type": "object",
+          "properties": {
+            "download": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "latency": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "upload": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      ]
+    },
+
+    "pdf": {
+      "type": "object",
+      "properties": {
+        "background": {
+          "type": "boolean"
+        },
+
+        "margin": {
+          "type": "string",
+          "enum": [
+            "default",
+            "minimum",
+            "none"
+          ]
+        },
+
+        "orientation": {
+          "type": "string",
+          "enum": [
+            "landscape",
+            "portrait"
+          ]
+        },
+
+        "page-size": {
+          "type": "string",
+          "enum":[
+            "A3",
+            "A4",
+            "legal",
+            "letter",
+            "tabloid"
+          ]
+        }
+      }
+    },
+
+    "selector": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "user-agent": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "width": {
+      "oneOf": [
+        {
+          "id": "integer",
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "id": "string",
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+
+    "zoom-factor": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "minimum": 1.00,
+      "maximum": 3.00
+    }
+  },
+
+  "required": [
+    "url",
+    "width"
+  ]
+}
