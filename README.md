@@ -57,6 +57,25 @@ Where `<directory>` is the directory where screenshots will be saved and `<port>
 incoming connections.  If not specified, `<directory>` will default to `%TEMP%\__netshot` on Windows (or
 `/tmp/__netshot` on all other platforms) and `<port>` will default to `8000`.
 
+### Headless Usage
+
+When running netshot in a headless manner, you must also create a virtual framebuffer for Electroshot.  The recommended
+way to do this is to start netshot with `xvfb-run`:
+
+```bash
+xvfb-run --server-args "-screen 0 1920x1080x24" netshot
+```
+
+### Logging
+
+Netshot uses [Bunyan](https://github.com/trentm/node-bunyan) for logging.  It is recommended that you
+[install Bunyan](https://github.com/trentm/node-bunyan#installation) and pipe netshot through it for pretty logging
+output:
+
+```bash
+netshot | bunyan
+```
+
 # REST API
 
 * [Retrieve a listing of all screenshots: `GET /`](#get-)
