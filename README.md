@@ -50,12 +50,12 @@ npm install -g netshot
 The netshot server can be started by running
 
 ```bash
-netshot <directory> <port>
+netshot -d <directory> -p <port>
 ```
 
 Where `<directory>` is the directory where screenshots will be saved and `<port>` is the port used to listen for
-incoming connections.  If not specified, `<directory>` will default to `%TEMP%\__netshot` on Windows (or
-`/tmp/__netshot` on all other platforms) and `<port>` will default to `8000`.
+incoming connections.  If `-d` is not specified, `<directory>` will default to `%TEMP%\__netshot` on Windows (or
+`/tmp/__netshot` on all other platforms).  If `-p` is not specified, `<port>` will default to `8000`.
 
 ### Headless Usage
 
@@ -63,7 +63,7 @@ When running netshot in a headless manner, you must also create a virtual frameb
 way to do this is to start netshot with `xvfb-run`:
 
 ```bash
-xvfb-run --server-args "-screen 0 1920x1080x24" netshot
+xvfb-run --server-args "-screen 0 640x480x24" netshot
 ```
 
 ### Logging
