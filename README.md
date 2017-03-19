@@ -66,6 +66,11 @@ way to do this is to start netshot with `xvfb-run`:
 xvfb-run --server-args "-screen 0 640x480x24" netshot
 ```
 
+### Docker Image
+
+A [Docker image](https://hub.docker.com/r/handcraftedbits/netshot/) for netshot is available.  To run, please consult
+the [documentation](https://github.com/handcraftedbits/docker-netshot#usage).
+
 ### Logging
 
 Netshot uses [Bunyan](https://github.com/trentm/node-bunyan) for logging.  It is recommended that you
